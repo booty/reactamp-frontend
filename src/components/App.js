@@ -1,11 +1,11 @@
 import React from 'https://cdn.skypack.dev/react';
 import { library } from './Library.js';
-import Album from './Album.js';
+// import Album from './Album.js';
 import AlbumList from './AlbumList.js';
 import NowPlaying from './NowPlaying.js';
 import Search from './Search.js';
 import StatusBar from './StatusBar.js';
-import Track from './Track.js';
+// import Track from './Track.js';
 import TrackList from './TrackList.js';
 
 class Player extends React.Component {
@@ -13,13 +13,13 @@ class Player extends React.Component {
     super(props);
     this.playTrack = this.playTrack.bind(this);
     this.state = {
-      nowPlaying: null
+      track_id: null
     };
   }
 
   playTrack(track_id) {
     console.log(`Player: I should play track ${track_id}`);
-    this.setState({nowPlaying: track_id});
+    this.setState({track_id: track_id});
   }
   
   render() {
@@ -30,7 +30,10 @@ class Player extends React.Component {
             <AlbumList albums={this.props.library.albums} />
           </div>
           <div className="PlayerRight column">
-            <NowPlaying />
+            <NowPlaying
+              track_id={this.state.track_id}
+              library={this.props.library}
+            />
             <Search />
             <TrackList
               tracks={this.props.library.tracks}
