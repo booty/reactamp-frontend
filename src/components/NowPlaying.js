@@ -6,9 +6,17 @@ export default class NowPlaying extends React.Component {
   }
 
   render() {
+    let label = null;
+
+    if (this.props.current_track) {
+      label = (
+        this.props.current_track.name
+      )
+    }
+
     return(
       <div className="NowPlaying">
-        Now Playing: {this.props.track_id} ...
+        Now Playing: {label}
       </div>
     );
   }

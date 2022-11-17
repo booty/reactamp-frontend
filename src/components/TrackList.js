@@ -5,16 +5,16 @@ export default class TrackList extends React.Component {
     super(props);
   }
 
-  playTrack(track_id) {
-    console.log(`TrackList: I should play track ${track_id}`);
-    this.props.onTrackClicked(track_id);
+  playTrack(track) {
+    console.log(`TrackList: I should play track ${track.track_id}`);
+    this.props.onTrackClicked(track);
   }
 
   render() {
     const tracks = this.props.tracks.map((t) => (
       <tr
         key={t.track_id}
-        onClick={(e) => this.playTrack(t.track_id, e)}
+        onClick={(e) => this.playTrack(t, e)}
       >
         <td>{t.name}</td>
         <td>

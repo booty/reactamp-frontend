@@ -13,13 +13,13 @@ class Player extends React.Component {
     super(props);
     this.playTrack = this.playTrack.bind(this);
     this.state = {
-      track_id: null
+      current_track: null
     };
   }
 
-  playTrack(track_id) {
-    console.log(`Player: I should play track ${track_id}`);
-    this.setState({track_id: track_id});
+  playTrack(current_track) {
+    console.log(`Player: I should play track ${current_track.name}`);
+    this.setState({current_track: current_track});
   }
   
   render() {
@@ -31,7 +31,7 @@ class Player extends React.Component {
           </div>
           <div className="PlayerRight column">
             <NowPlaying
-              track_id={this.state.track_id}
+              current_track={this.state.current_track}
               library={this.props.library}
             />
             <Search />
