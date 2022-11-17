@@ -11,6 +11,15 @@ import TrackList from './TrackList.js';
 class Player extends React.Component {
   constructor(props) {
     super(props);
+    this.playTrack = this.playTrack.bind(this);
+    this.state = {
+      nowPlaying: null
+    };
+  }
+
+  playTrack(track_id) {
+    console.log(`Player: I should play track ${track_id}`);
+    this.setState({nowPlaying: track_id});
   }
   
   render() {
@@ -23,7 +32,10 @@ class Player extends React.Component {
           <div className="PlayerRight column">
             <NowPlaying />
             <Search />
-            <TrackList tracks={this.props.library.tracks} />
+            <TrackList
+              tracks={this.props.library.tracks}
+              onTrackClicked={this.playTrack}
+            />
           </div>
         </div>
         <div className="row bottomRow">
