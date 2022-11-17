@@ -1,0 +1,86 @@
+/**
+ * index.scss
+ * - Add any styles you want here!
+ */
+
+$spacing-small: .25em;
+$spacing-medium: .5em;
+$spacing-big: 1em;
+
+@mixin component {
+  border: 1px solid #0006;
+  box-shadow: 2px 2px #0006;
+  padding: $spacing-medium;
+}
+div {
+  sizing: box;
+}
+
+.Player {
+  background-color: #fff;
+  border: 1px solid #000;
+  box-shadow: 5px 5px #0006;
+  min-height: 20em;
+  padding: $spacing-big;
+}
+
+.NowPlaying {
+  background-color: #fdd;
+  margin-bottom: $spacing-big;
+  @include component;
+}
+
+.Search {
+  background-color: #fdf;
+  margin-bottom: $spacing-big;
+  text-align: right;
+  @include component;
+}
+
+.TrackList {
+  background-color: #ffd;
+  height: 12.5em;
+  @include component;
+}
+
+.AlbumList {
+  background-color: #ddf;
+  height: 19em;
+  @include component;
+}
+
+.StatusBar {
+  background-color: #fdd;
+  background-color: #eee;
+  @include component;
+}
+
+.row {
+  // border: 2px dashed pink;
+  display: flex;
+}
+
+.column {
+  // border: 2px dashed green;
+}
+
+.column + .column {
+  padding-left: $spacing-big;
+}
+
+.mainRow {
+  min-height: 20em;
+}
+
+.PlayerLeft {
+  flex: 20%;
+}
+
+.PlayerRight {
+  flex: 75%;
+}
+
+.PlayerBottom {
+  padding-top: $spacing-big;
+  flex: 75%;
+}
