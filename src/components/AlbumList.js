@@ -13,7 +13,10 @@ export default class AlbumList extends React.Component {
 
     return (
       <div className="AlbumList">
-        AlbumList ({this.props.albums.length} albums)
+        Albums ({this.props.albums.length})
+        <ul>
+          {albums}
+        </ul>
       </div>
     );
   }

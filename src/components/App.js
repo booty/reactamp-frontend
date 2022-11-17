@@ -23,7 +23,7 @@ class Player extends React.Component {
           <div className="PlayerRight column">
             <NowPlaying />
             <Search />
-            <TrackList albums={this.props.library.tracks} />
+            <TrackList tracks={this.props.library.tracks} />
           </div>
         </div>
         <div className="row bottomRow">

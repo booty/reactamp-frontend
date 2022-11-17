@@ -12,8 +12,17 @@ $spacing-big: 1em;
   box-shadow: 2px 2px #0006;
   padding: $spacing-medium;
 }
+
+@mixin hoverEffect {
+  background-color: #0001;
+}
+
 div {
   sizing: box;
+}
+
+ul {
+  padding-left: 1em;
 }
 
 .Player {
@@ -40,13 +49,20 @@ div {
 .TrackList {
   background-color: #ffd;
   height: 12.5em;
+  overflow: scroll;
   @include component;
+  tr:hover {
+    @include hoverEffect;
+  }
 }
 
 .AlbumList {
   background-color: #ddf;
   height: 19em;
   @include component;
+  li:hover {
+    @include hoverEffect;
+  }
 }
 
 .StatusBar {
