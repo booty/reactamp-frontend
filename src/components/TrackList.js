@@ -10,8 +10,25 @@ export default class TrackList extends React.Component {
     this.props.onTrackClicked(track);
   }
 
+
+
+  filterTracks(tracks, searchString) {
+    // todo: strip space from searchString, may want to do in App?
+    if (searchString === "") {
+      return tracks;
+    }
+
+    const searchStringLower = searchString.toLowerCase();
+
+    return tracks.filter((track) =>
+      track.name.toLowerCase().includes(searchStringLower)
+    )
+  }
+
   render() {
-    const tracks = this.props.tracks.map((t) => (
+    const filteredTracks = this.filterTracks(this.props.tracks, this.props.searchString);
+
+    const tracks = filteredTracks.map((t) => (
       <tr
         key={t.track_id}
         onClick={(e) => this.playTrack(t, e)}
