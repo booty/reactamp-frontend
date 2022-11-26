@@ -21,6 +21,10 @@ class Player extends React.Component {
     console.log(`Player: I should play track ${current_track.name}`);
     this.setState({current_track: current_track});
   }
+
+  searchUpdated(foo) {
+    console.log(`Player: search string is now ${foo}`);
+  }
   
   render() {
     return (
@@ -34,7 +38,9 @@ class Player extends React.Component {
               current_track={this.state.current_track}
               library={this.props.library}
             />
-            <Search />
+            <Search
+              onSearchUpdated={this.searchUpdated}
+            />
             <TrackList
               tracks={this.props.library.tracks}
               onTrackClicked={this.playTrack}
