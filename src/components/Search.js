@@ -6,11 +6,14 @@ export default class Search extends React.Component {
     this.state = {
       searchString: ""
     };
+
+    this.searchUpdated = this.searchUpdated.bind(this);
   }
 
   searchUpdated(e) {
     const val = e.target.value;
     this.setState({searchString: val});
+    console.log(`Search: will bubble up ${val}`);
     this.props.onSearchUpdated(val);
   }
 
@@ -20,7 +23,7 @@ export default class Search extends React.Component {
         <input
           type="text"
           value={this.state.searchString}
-          onChange={(e) => this.searchUpdated(e)}
+          onChange={this.searchUpdated}
         />
       </div>
     );
